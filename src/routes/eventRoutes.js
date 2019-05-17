@@ -34,7 +34,7 @@ module.exports = function(app){
 
     app.put('/events/:id',(req,res)=>{
         const eventData = {
-            id: req.params.id,
+            id: parseInt(req.params.id),
             name: req.body.name,
             location: req.body.location ,
             date: req.body.date ,
@@ -44,8 +44,9 @@ module.exports = function(app){
             created_at: null,
             updated_at:null
         };
+        console.log(eventData)
         Event.updateEvent(eventData,(err,data)=>{
-            if (data && data.insertId){
+            if (data && data.message){
                 res.json(data)
             }else{
                 res.status(500).json({

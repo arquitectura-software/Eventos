@@ -31,15 +31,16 @@ module.exports = function(app){
 
     app.put('/reservations/:id',(req,res)=>{
         const reservData = {
-            id: req.params.id,
+            id: parseInt(req.params.id),
             quantity: req.body.quantity,
             id_user: req.body.id_user,
             id_event: req.body.id_event,
             created_at: null,
             updated_at:null
         };
+        console.log(reservData)
         Reservation.updateReservation(reservData,(err,data)=>{
-            if (data && data.insertId){
+            if (data && data.message){
                 res.json(data)
             }else{
                 res.status(500).json({

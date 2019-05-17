@@ -41,8 +41,8 @@ eventModel.insertEvent = (eventData,callback)=>{
 
 eventModel.updateEvent = (eventData,callback)=>{
     if (connection){
-        const sql = "UPDATE events SET name = ${connection.escape(eventData.name)},location = ${connection.escape(eventData.location),date = ${connection.escape(eventData.date)}, capacity= ${connection.escape(eventData.capacity)}, audence= ${connection.escape(eventData.audence)}, description = ${connection.escape(eventData.description)} WHERE id = ${connection.escape(eventData.id)}";
-        
+        const sql = `UPDATE events SET name = ${connection.escape(eventData.name)},location = ${connection.escape(eventData.location)},date = ${connection.escape(eventData.date)}, capacity= ${connection.escape(eventData.capacity)}, audence= ${connection.escape(eventData.audence)}, description = ${connection.escape(eventData.description)} WHERE id = ${connection.escape(eventData.id)}`;
+
         connection.query(sql, (err, result) => {
             if (err){
                 throw err
