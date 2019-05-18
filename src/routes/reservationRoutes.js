@@ -51,5 +51,20 @@ module.exports = function(app){
         })
     });
 
+    app.delete('/reservations/:id', (req, res) => {
+        Reservation.deleteReservation(parseInt(req.params.id), (err, data) => {
+            if (data && data.message == 'deleted' || data.message == 'not exists') {
+                res.json({
+                    success: true,
+                    data
+                })
+            }else{
+                res.status(500).json({
+                    message: "error"
+                })
+            }
+        })
+    });
+
 
 }

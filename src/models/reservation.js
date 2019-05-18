@@ -59,4 +59,29 @@ reservationModel.updateReservation = (reservData, callback) => {
   }
 };
 
+reservationModel.deleteReservation = (id, callback) => {
+  if (connection) {
+    let sql = `
+      SELECT * FROM reservations WHERE id = ${connection.escape(id)}`;
+    connection.query(sql, (err, row) => {
+      if (row) {
+        let sql = `DELETE FROM reservations WHERE id = ${id}`;
+        connection.query(sql, (err, result) => {
+          if (err) {
+            throw err
+          } else {
+            callback(null, {
+              "message": "deleted"
+            })
+          }
+        })
+      } else {
+        callback(null, {
+          "message": "not exists"
+        })
+      }
+    })
+  }
+};
+
 module.exports = reservationModel;
