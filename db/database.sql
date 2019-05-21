@@ -10,10 +10,13 @@ CREATE TABLE IF NOT EXISTS events (
     capacity INT(10) unsigned NOT NULL,
     audence VARCHAR(100) COLLATE utf8_unicode_ci NOT NULL,
     description VARCHAR(300) COLLATE utf8_unicode_ci NOT NULL,
+    tipo VARCHAR(100) COLLATE utf8_unicode_ci NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL,
     PRIMARY KEY(id),
-    INDEX(id)
+    INDEX(id),
+    INDEX(tipo),
+    INDEX(location)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
 DESCRIBE events;
 
