@@ -1,4 +1,4 @@
-CREATE DATABASE Events;
+CREATE DATABASE IF NOT EXISTS Events;
 use Events;
 
 CREATE TABLE IF NOT EXISTS events (
@@ -36,3 +36,6 @@ CREATE TABLE IF NOT EXISTS reservations (
 ) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
 
 DESCRIBE reservations;
+
+ALTER USER 'mysql'@'%' IDENTIFIED WITH mysql_native_password BY '1234';
+FLUSH PRIVILEGES;
