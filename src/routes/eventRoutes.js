@@ -14,8 +14,9 @@ module.exports = function (app) {
             capacity: req.body.capacity,
             audence: req.body.audence,
             description: req.body.description,
-            created_at: null,
-            updated_at: null
+            tipo: req.body.tipo,
+            created_at: new Date(),
+            updated_at: new Date()
         };
         Event.insertEvent(eventData, (err, data) => {
             if (data && data.insertId) {
@@ -41,8 +42,8 @@ module.exports = function (app) {
             capacity: req.body.capacity,
             audence: req.body.audence,
             description: req.body.description,
-            created_at: null,
-            updated_at: null
+            created_at: new Date(),
+            updated_at: new Date()
         };
         console.log(eventData)
         Event.updateEvent(eventData, (err, data) => {
