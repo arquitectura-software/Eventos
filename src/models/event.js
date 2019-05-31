@@ -50,8 +50,8 @@ eventModel.updateEvent = (eventData, callback) => {
         date = ${connection.escape(eventData.date)}, 
         capacity= ${connection.escape(eventData.capacity)}, 
         audence= ${connection.escape(eventData.audence)},
-        description = ${connection.escape(eventData.description)} 
-        tipo= ${connection.escape(eventData.tipo)}, 
+        description = ${connection.escape(eventData.description)}, 
+        tipo= ${connection.escape(eventData.tipo)} 
         WHERE id = ${connection.escape(eventData.id)}`;
 
         connection.query(sql, (err, result) => {

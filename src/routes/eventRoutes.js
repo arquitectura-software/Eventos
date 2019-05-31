@@ -42,6 +42,7 @@ module.exports = function (app) {
             capacity: req.body.capacity,
             audence: req.body.audence,
             description: req.body.description,
+            tipo:req.body.tipo,
             created_at: new Date(),
             updated_at: new Date()
         };
