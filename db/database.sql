@@ -12,12 +12,12 @@ date DATE NOT NULL,
 capacity INT(10) unsigned NOT NULL,
 audence VARCHAR(100) COLLATE utf8_unicode_ci NOT NULL,
 description VARCHAR(300) COLLATE utf8_unicode_ci NOT NULL,
-type VARCHAR(100) COLLATE utf8_unicode_ci NOT NULL,
+tipo VARCHAR(100) COLLATE utf8_unicode_ci NOT NULL,
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
 updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL,
 PRIMARY KEY(id),
 INDEX(id),
-INDEX(type),
+INDEX(tipo),
 INDEX(location)
 )ENGINE=InnoDB DEFAULT CHARACTER SET = utf8;
 DESCRIBE events;
@@ -44,7 +44,7 @@ WITH mysql_native_password BY '1234';
 FLUSH PRIVILEGES;
 
 INSERT INTO events
-    (name, location, date, capacity, audence, description, type)
+    (name, location, date, capacity, audence, description, tipo)
 VALUES
     ('Carrera de Obstaculos', 'Plaza central', '2019-07-03 12:00:00', 500, 'Para toda la familia', 'Carrera de obstaculos donde probaras tu destreza junto a tu familia y amigos.', 'Diversión'),
     ('Casino de media noche', 'Casino Royale', '2019-07-02 22:00:00', 200, 'Adultos', 'Casino Royale te invita a probar tu suerte, la noche de hoy tendremos bonificación del 200% para apoyar multiples fundaciones.', 'Beneficencia'),
