@@ -17,8 +17,10 @@ module.exports = function(app){
         Reservation.insertReservation (reservData,(err,data)=>{
             if (data && data.insertId){
                 res.json({
-                    success: true,
-                    data: data
+                    id: null,
+                    quantity: reservData.quantity,
+                    id_user: reservData.id_user,
+                    id_event: reservData.id_event,
                 })
             }else{
                 res.status(500).json({
@@ -41,7 +43,12 @@ module.exports = function(app){
         console.log(reservData)
         Reservation.updateReservation(reservData,(err,data)=>{
             if (data && data.message){
-                res.json(data)
+                res.json({
+                    id: reservData.id,
+                    quantity: reservData.quantity,
+                    id_user: reservData.id_user,
+                    id_event: reservData.id_event,
+                })
             }else{
                 res.status(500).json({
                     success: false,
@@ -55,8 +62,7 @@ module.exports = function(app){
         Reservation.deleteReservation(parseInt(req.params.id), (err, data) => {
             if (data && data.message == 'deleted' || data.message == 'not exists') {
                 res.json({
-                    success: true,
-                    data
+                    id: parseInt(req.params.id)
                 })
             }else{
                 res.status(500).json({
