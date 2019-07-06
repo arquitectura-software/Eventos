@@ -21,8 +21,14 @@ module.exports = function (app) {
         Event.insertEvent(eventData, (err, data) => {
             if (data && data.insertId) {
                 res.json({
-                    success: true,
-                    data: data
+                    id: null,
+                    name: eventData.name,
+                    location: eventData.location,
+                    date: eventData.date,
+                    capacity: eventData.capacity,
+                    audence: eventData.audence,
+                    description: eventData.description,
+                    tipo: eventData.tipo,
                 })
             } else {
                 res.status(500).json({
@@ -49,7 +55,16 @@ module.exports = function (app) {
         console.log(eventData)
         Event.updateEvent(eventData, (err, data) => {
             if (data && data.message) {
-                res.json(data)
+                res.json({
+                    id: eventData.id,
+                    name: eventData.name,
+                    location: eventData.location,
+                    date: eventData.date,
+                    capacity: eventData.capacity,
+                    audence: eventData.audence,
+                    description: eventData.description,
+                    tipo: eventData.tipo,
+                })
             } else {
                 res.status(500).json({
                     success: false,
@@ -63,8 +78,7 @@ module.exports = function (app) {
         Event.deleteEvent(parseInt(req.params.id), (err, data) => {
             if (data && data.message == 'deleted' || data.message == 'not exists') {
                 res.json({
-                    success: true,
-                    data
+                    id: parseInt(req.params.id)
                 })
             }else{
                 res.status(500).json({
