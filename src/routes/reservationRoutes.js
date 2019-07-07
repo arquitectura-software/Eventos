@@ -11,8 +11,8 @@ module.exports = function(app){
             quantity: req.body.quantity,
             id_user: req.body.id_user,
             id_event: req.body.id_event,
-            created_at: null,
-            updated_at:null
+            created_at: new Date(),
+            updated_at:new Date()
         };
         Reservation.insertReservation (reservData,(err,data)=>{
             if (data && data.insertId){
