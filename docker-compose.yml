@@ -1,19 +1,21 @@
 version: '2.1'
 
 services:
-  db:
+  
+  eventos-db:
     build: ./db
     environment:
       MYSQL_DATABASE: Events
       MYSQL_ROOT_PASSWORD: 1234
       MYSQL_USER: mysql
       MYSQL_PASSWORD: 1234
-      DATABASE_HOST: db
-  eventos:
+      DATABASE_HOST: eventos-db
+  
+  eventos-ms:
     build: .
     environment:
       NODE_ENV: production
-      DATABASE_HOST: db
+      DATABASE_HOST: eventos-db
       MYSQL_PORT: 3306
       MYSQL_DATABASE: Events
       MYSQL_USER: mysql
@@ -21,5 +23,5 @@ services:
     ports:
       - "3003:3000"
     depends_on:
-      - db
+      - eventos-db
     restart: on-failure
