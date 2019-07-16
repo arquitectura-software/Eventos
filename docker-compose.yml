@@ -24,7 +24,7 @@ services:
       MYSQL_USER: mysql
       MYSQL_PASSWORD: 1234
     ports:
-      - 3003:3000
+      - 3003:3003
     depends_on:
       - eventos-db
     restart: on-failure
