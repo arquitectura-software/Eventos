@@ -21,7 +21,6 @@ module.exports = function (app) {
         Event.insertEvent(eventData, (err, data) => {
             if (data && data.insertId) {
                 res.json({
-                    id: null,
                     name: eventData.name,
                     location: eventData.location,
                     date: eventData.date,

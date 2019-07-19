@@ -24,7 +24,11 @@ services:
       MYSQL_USER: mysql
       MYSQL_PASSWORD: 1234
     ports:
+<<<<<<< Updated upstream
       - 3003:3003
+=======
+      - "3003:3003"
+>>>>>>> Stashed changes
     depends_on:
       - eventos-db
     restart: on-failure

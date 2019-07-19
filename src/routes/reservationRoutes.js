@@ -17,7 +17,6 @@ module.exports = function(app){
         Reservation.insertReservation (reservData,(err,data)=>{
             if (data && data.insertId){
                 res.json({
-                    id: null,
                     quantity: reservData.quantity,
                     id_user: reservData.id_user,
                     id_event: reservData.id_event,
